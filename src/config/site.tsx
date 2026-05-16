@@ -1,4 +1,4 @@
-import { Gauge, type LucideIcon, MessagesSquare, MapPin, Users, Package, ShoppingCart, Tags } from "lucide-react";
+import { Gauge, type LucideIcon, MessagesSquare, MapPin, Users, Package, ShoppingCart, Tags, Monitor } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
 export type Navigation = {
@@ -13,6 +13,11 @@ export const siteConfig = {
 };
 
 export const navigations: Navigation[] = [
+  {
+    icon: Monitor,
+    name: "PDV – Caixa",
+    href: "/pdv",
+  },
   {
     icon: Gauge,
     name: "Dashboard",

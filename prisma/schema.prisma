@@ -48,6 +48,7 @@ model Venda {
   formapagto        String
   desconto          Float
   total             Float
+  created_at        String         @default("")
   cliente           Cliente        @relation(fields: [cliente_idCliente], references: [idCliente])
   produto_vendas    ProdutoVenda[]
 }
