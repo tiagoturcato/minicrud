@@ -173,15 +173,32 @@ export function ProdutoDialog({ isOpen, onClose, produto }: ProdutoDialogProps) 
           {/* Situação */}
           <div>
             <label className={labelClass}>Situação *</label>
-            <select
-              name="ativo"
-              value={form.ativo}
-              onChange={handleChange}
-              className={inputClass}
-            >
-              <option value="1">Ativo</option>
-              <option value="0">Inativo</option>
-            </select>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setForm((prev) => ({ ...prev, ativo: "1" }))}
+                className={`flex-1 flex items-center justify-center gap-2 rounded-md border py-2 text-sm font-medium transition-all ${
+                  form.ativo === "1"
+                    ? "bg-green-500/10 border-green-500 text-green-600 dark:text-green-400"
+                    : "border-border bg-transparent text-muted-foreground hover:bg-slate-100 dark:hover:bg-slate-800"
+                }`}
+              >
+                Ativo
+              </button>
+              <button
+                type="button"
+                onClick={() => setForm((prev) => ({ ...prev, ativo: "0" }))}
+                className={`flex-1 flex items-center justify-center gap-2 rounded-md border py-2 text-sm font-medium transition-all ${
+                  form.ativo === "0"
+                    ? "bg-red-500/10 border-red-500 text-red-600 dark:text-red-400"
+                    : "border-border bg-transparent text-muted-foreground hover:bg-slate-100 dark:hover:bg-slate-800"
+                }`}
+              >
+                Inativo
+              </button>
+            </div>
+            {/* Campo hidden para manter a lógica do form se necessário */}
+            <input type="hidden" name="ativo" value={form.ativo} />
           </div>
 
           <div className="flex justify-end gap-2 pt-4">

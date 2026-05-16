@@ -1,4 +1,4 @@
-import { Gauge, type LucideIcon, MessagesSquare, MapPin, Users, Package } from "lucide-react";
+import { Gauge, type LucideIcon, MessagesSquare, MapPin, Users, Package, ShoppingCart, Tags } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
 export type Navigation = {
@@ -37,5 +37,15 @@ export const navigations: Navigation[] = [
     icon: Package,
     name: "Produtos",
     href: "/produto",
+  },
+  {
+    icon: ShoppingCart,
+    name: "Vendas",
+    href: "/venda",
+  },
+  {
+    icon: Tags,
+    name: "Itens da Venda",
+    href: "/produto_venda",
   },
 ];

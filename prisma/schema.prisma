@@ -27,14 +27,42 @@ model Cliente {
   salario         Float?
   ativo           Int      @default(1)
   cidade          Cidade   @relation(fields: [cidade_idcidade], references: [idcidade])
+  vendas          Venda[]
 }
 
 model Produto {
-  idproduto   Int    @id @default(autoincrement())
-  nome        String
-  sku         String
-  preco_venda Float
-  custo       Float
-  ativo       Int    @default(1)
+  idproduto     Int            @id @default(autoincrement())
+  nome          String
+  sku           String
+  preco_venda   Float
+  custo         Float
+  ativo         Int            @default(1)
+  produto_vendas ProdutoVenda[]
 }
+
+model Venda {
+  idvenda           Int            @id @default(autoincrement())
+  data_venda        String
+  cliente_idCliente Int
+  tipo              String
+  formapagto        String
+  desconto          Float
+  total             Float
+  cliente           Cliente        @relation(fields: [cliente_idCliente], references: [idCliente])
+  produto_vendas    ProdutoVenda[]
+}
+
+model ProdutoVenda {
+  idproduto_venda         Int     @id @default(autoincrement())
+  quantidade              Int
+  preco                   Float
+  total                   Float
+  venda_idvenda           Int
+  venda_cliente_idCliente Int
+  produto_idproduto       Int
+  venda                   Venda   @relation(fields: [venda_idvenda], references: [idvenda])
+  produto                 Produto @relation(fields: [produto_idproduto], references: [idproduto])
+}
+
+
 

@@ -4,29 +4,29 @@ import { MapPin, Users, Package, TrendingUp } from "lucide-react";
 export default function DashboardStats({ stats }: { stats: any }) {
   const items = [
     {
-      title: "Total de Cidades",
-      value: stats.totalCidades,
-      icon: MapPin,
-      color: "text-blue-500",
-      bg: "bg-blue-500/10",
-    },
-    {
-      title: "Total de Clientes",
+      title: "Clientes",
       value: stats.totalClientes,
       icon: Users,
       color: "text-green-500",
       bg: "bg-green-500/10",
     },
     {
-      title: "Total de Produtos",
+      title: "Produtos",
       value: stats.totalProdutos,
       icon: Package,
       color: "text-purple-500",
       bg: "bg-purple-500/10",
     },
     {
-      title: "Preço Médio",
-      value: stats.avgPreco.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }),
+      title: "Total Vendido",
+      value: stats.totalVendido.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }),
+      icon: TrendingUp,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+    },
+    {
+      title: "Ticket Médio",
+      value: stats.ticketMedio.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }),
       icon: TrendingUp,
       color: "text-orange-500",
       bg: "bg-orange-500/10",
