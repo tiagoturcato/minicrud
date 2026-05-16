@@ -2,15 +2,18 @@ import {
   AverageTicketsCreated,
   Conversions,
   CustomerSatisfication,
-  Metrics,
   TicketByChannels,
 } from "@/components/chart-blocks";
 import Container from "@/components/container";
+import { getDashboardStats } from "./actions";
+import DashboardStats from "./dashboard-stats";
 
-export default function Home() {
+export default async function Home() {
+  const stats = await getDashboardStats();
+
   return (
     <div>
-      <Metrics />
+      <DashboardStats stats={stats} />
       <div className="grid grid-cols-1 divide-y border-b border-border laptop:grid-cols-3 laptop:divide-x laptop:divide-y-0 laptop:divide-border">
         <Container className="py-4 laptop:col-span-2">
           <AverageTicketsCreated />

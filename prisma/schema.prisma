@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../data/cidade.db"
+}
+
+model Cidade {
+  idcidade Int       @id @default(autoincrement())
+  nome     String
+  estado   String
+  clientes Cliente[]
+}
+
+model Cliente {
+  idCliente       Int      @id @default(autoincrement())
+  nome            String
+  cpf             String
+  endereco        String
+  numero          Int
+  complemento     String?
+  bairro          String
+  cidade_idcidade Int
+  dtnasc          String?
+  salario         Float?
+  ativo           Int      @default(1)
+  cidade          Cidade   @relation(fields: [cidade_idcidade], references: [idcidade])
+}
+
+model Produto {
+  idproduto   Int    @id @default(autoincrement())
+  nome        String
+  sku         String
+  preco_venda Float
+  custo       Float
+  ativo       Int    @default(1)
+}
+
